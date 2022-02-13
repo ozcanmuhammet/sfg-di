@@ -1,11 +1,15 @@
 package ozcan.springframework.sfgdi.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import ozcan.springframework.sfgdi.service.GreetingService;
 
+@Controller
 public class SetterInjectedController {
 
     private GreetingService greetingService;
 
+    @Autowired
     public void setGreetingService(GreetingService greetingService){
         this.greetingService=greetingService;
     }
