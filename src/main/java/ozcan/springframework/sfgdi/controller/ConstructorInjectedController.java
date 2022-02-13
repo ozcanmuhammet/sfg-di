@@ -1,5 +1,6 @@
 package ozcan.springframework.sfgdi.controller;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import ozcan.springframework.sfgdi.service.GreetingService;
 
@@ -9,7 +10,7 @@ public class ConstructorInjectedController {
     private final GreetingService greetingService;
 
     // Can use @Autowire but with constructor it's not necessary
-    public ConstructorInjectedController(GreetingService greetingService) {
+    public ConstructorInjectedController(@Qualifier("constructorInjectedGreetingServiceImpl") GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 
