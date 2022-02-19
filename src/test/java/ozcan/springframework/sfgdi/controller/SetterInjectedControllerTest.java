@@ -2,7 +2,7 @@ package ozcan.springframework.sfgdi.controller;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ozcan.springframework.sfgdi.service.ConstructorInjectedGreetingServiceImpl;
+import ozcan.springframework.sfgdi.service.ConstructorInjectedGreetingService;
 
 class SetterInjectedControllerTest {
 
@@ -11,7 +11,7 @@ class SetterInjectedControllerTest {
     @BeforeEach
     void setUp() {
         controller=new SetterInjectedController();
-        controller.setGreetingService(new ConstructorInjectedGreetingServiceImpl());
+        controller.setGreetingService(new ConstructorInjectedGreetingService());
     }
 
     @Test

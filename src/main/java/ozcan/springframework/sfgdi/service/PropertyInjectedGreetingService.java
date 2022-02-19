@@ -2,11 +2,9 @@ package ozcan.springframework.sfgdi.service;
 
 import org.springframework.stereotype.Service;
 
-@Service
-public class SetterInjectedGreetingServiceImpl implements GreetingService{
-
+public class PropertyInjectedGreetingService implements GreetingService{
     @Override
     public String sayGreeting() {
-        return "Hello World - Setter injected";
+        return "Hello World - Property injected";
     }
 }

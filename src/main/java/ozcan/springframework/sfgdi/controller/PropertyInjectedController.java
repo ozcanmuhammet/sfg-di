@@ -10,7 +10,7 @@ import ozcan.springframework.sfgdi.service.GreetingService;
 public class PropertyInjectedController {
 
     @Autowired
-    @Qualifier("propertyInjectedGreetingServiceImpl")
+    @Qualifier("propertyInjectedGreetingService")
     public GreetingService greetingService;
 
     public String getGreeting(){

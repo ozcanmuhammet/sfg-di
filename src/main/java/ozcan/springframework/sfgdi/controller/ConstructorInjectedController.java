@@ -10,7 +10,7 @@ public class ConstructorInjectedController {
     private final GreetingService greetingService;
 
     // Can use @Autowire but with constructor it's not necessary
-    public ConstructorInjectedController(@Qualifier("constructorInjectedGreetingServiceImpl") GreetingService greetingService) {
+    public ConstructorInjectedController(@Qualifier("constructorInjectedGreetingService") GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 
