@@ -1,15 +1,13 @@
 package ozcan.springframework.sfgdi.config;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 import ozcan.springframework.pets.PetService;
 import ozcan.springframework.pets.PetServiceFactory;
 import ozcan.springframework.sfgdi.repository.EnglishGreetingRepository;
 import ozcan.springframework.sfgdi.repository.EnglishGreetingRepositoryImpl;
 import ozcan.springframework.sfgdi.service.*;
 
+@ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
 
@@ -53,10 +51,10 @@ public class GreetingServiceConfig {
         return new PrimaryGreetingService();
     }
 
-    @Bean
+/*    @Bean
     ConstructorInjectedGreetingService constructorInjectedGreetingService(){
         return new ConstructorInjectedGreetingService();
-    }
+    }*/
 
     @Bean
     PropertyInjectedGreetingService propertyInjectedGreetingService(){
