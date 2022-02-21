@@ -4,12 +4,31 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
+import ozcan.springframework.pets.PetService;
+import ozcan.springframework.pets.PetServiceFactory;
 import ozcan.springframework.sfgdi.repository.EnglishGreetingRepository;
 import ozcan.springframework.sfgdi.repository.EnglishGreetingRepositoryImpl;
 import ozcan.springframework.sfgdi.service.*;
 
 @Configuration
 public class GreetingServiceConfig {
+
+    @Bean
+    PetServiceFactory petServiceFactory(){
+        return new PetServiceFactory();
+    }
+
+    @Profile({"dog", "default"})
+    @Bean
+    PetService dogPetService(PetServiceFactory petServiceFactory){
+        return petServiceFactory.getPetService("dog");
+    }
+
+    @Profile("cat")
+    @Bean
+    PetService catPetService(PetServiceFactory petServiceFactory){
+        return  petServiceFactory.getPetService("cat");
+    }
 
     @Bean
     EnglishGreetingRepository englishGreetingRepository(){

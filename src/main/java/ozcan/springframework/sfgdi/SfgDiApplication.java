@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import ozcan.springframework.sfgdi.controller.*;
 
-@ComponentScan(basePackages = {"ozcan.springframework.pets", "ozcan.springframework.sfgdi"})
+//@ComponentScan(basePackages = {"ozcan.springframework.pets", "ozcan.springframework.sfgdi"})
 @SpringBootApplication
 public class SfgDiApplication {
 
