@@ -1,0 +1,4 @@
+ozcan:
+  username: YMLdevUser
+  password: YMLdevPassword
+  jdbcUrl: YMLdevJdbcUrl

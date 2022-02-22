@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: EN, cat
+    active: EN, cat, dev
 
 ozcan:
   username: YMLUserName
