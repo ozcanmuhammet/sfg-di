@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: EN, cat
+
+ozcan:
+  username: YMLUserName
+  password: YMLPassword
+  jdbcUrl: YMLJdbcUrl
+
+
