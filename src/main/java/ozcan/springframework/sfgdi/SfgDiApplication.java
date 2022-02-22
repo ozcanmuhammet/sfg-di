@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import ozcan.springframework.sfgdi.controller.*;
+import ozcan.springframework.sfgdi.datasource.FakeDatasource;
 import ozcan.springframework.sfgdi.service.PrototypeBean;
 import ozcan.springframework.sfgdi.service.SingletonBean;
 
@@ -56,6 +57,11 @@ public class SfgDiApplication {
 		System.out.println(prototypeBean1.getMyScope());
 		PrototypeBean prototypeBean2 = context.getBean("prototypeBean", PrototypeBean.class);
 		System.out.println(prototypeBean2.getMyScope());
+
+		FakeDatasource fakeDatasource = context.getBean(FakeDatasource.class);
+		System.out.println(fakeDatasource.getUserName());
+		System.out.println(fakeDatasource.getPassword());
+		System.out.println(fakeDatasource.getJdbcUrl());
 
 	}
 

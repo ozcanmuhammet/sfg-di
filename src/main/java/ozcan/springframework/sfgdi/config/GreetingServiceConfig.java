@@ -1,15 +1,30 @@
 package ozcan.springframework.sfgdi.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 import ozcan.springframework.pets.PetService;
 import ozcan.springframework.pets.PetServiceFactory;
+import ozcan.springframework.sfgdi.datasource.FakeDatasource;
 import ozcan.springframework.sfgdi.repository.EnglishGreetingRepository;
 import ozcan.springframework.sfgdi.repository.EnglishGreetingRepositoryImpl;
 import ozcan.springframework.sfgdi.service.*;
 
+@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
+
+    @Bean
+    FakeDatasource fakeDatasource(@Value("${ozcan.userName}") String userName,
+                                  @Value("${ozcan.password}") String password,
+                                  @Value("${ozcan.jdbcUrl}") String jdbcUrl){
+        FakeDatasource fakeDatasource = new FakeDatasource();
+        fakeDatasource.setUserName(userName);
+        fakeDatasource.setPassword(password);
+        fakeDatasource.setJdbcUrl(jdbcUrl);
+
+        return fakeDatasource;
+    }
 
     @Bean
     PetServiceFactory petServiceFactory(){
