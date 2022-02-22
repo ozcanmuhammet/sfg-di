@@ -9,15 +9,15 @@ import ozcan.springframework.sfgdi.repository.EnglishGreetingRepository;
 import ozcan.springframework.sfgdi.repository.EnglishGreetingRepositoryImpl;
 import ozcan.springframework.sfgdi.service.*;
 
-@PropertySource("classpath:datasource.properties")
+//@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
 
     @Bean
-    FakeDatasource fakeDatasource(@Value("${ozcan.userName}") String userName,
+    FakeDatasource fakeDatasource(@Value("${ozcan.username}") String userName,
                                   @Value("${ozcan.password}") String password,
-                                  @Value("${ozcan.jdbcUrl}") String jdbcUrl){
+                                  @Value("${ozcan.jdbcurl}") String jdbcUrl){
         FakeDatasource fakeDatasource = new FakeDatasource();
         fakeDatasource.setUserName(userName);
         fakeDatasource.setPassword(password);
