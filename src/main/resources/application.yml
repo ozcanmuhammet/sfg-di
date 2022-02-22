@@ -1,10 +1,25 @@
 spring:
   profiles:
-    active: EN, cat, dev
+#    active: EN, cat, prod
+     active:
+       - EN
+       - cat
+       - prod
 
 ozcan:
   username: YMLUserName
   password: YMLPassword
   jdbcUrl: YMLJdbcUrl
+
+
+---
+spring:
+  profile: prod
+
+ozcan:
+  username: YMLProdUserName
+  password: YMLProdPassword
+  jdbcUrl: YMLProdJdbcUrl
+
 
 
