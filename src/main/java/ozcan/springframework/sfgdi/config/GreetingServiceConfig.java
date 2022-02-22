@@ -26,6 +26,18 @@ public class GreetingServiceConfig {
         return fakeDatasource;
     }
 
+/*
+    @Bean
+    FakeDatasource fakeDatasource(SfgConfiguration sfgConfiguration){
+        FakeDatasource fakeDatasource = new FakeDatasource();
+        fakeDatasource.setUserName(sfgConfiguration.getUserName());
+        fakeDatasource.setPassword(sfgConfiguration.getPassword());
+        fakeDatasource.setJdbcUrl(sfgConfiguration.getJdbcUrl());
+
+        return fakeDatasource;
+    }
+*/
+
     @Bean
     PetServiceFactory petServiceFactory(){
         return new PetServiceFactory();

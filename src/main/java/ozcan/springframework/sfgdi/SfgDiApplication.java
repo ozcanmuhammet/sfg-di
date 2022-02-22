@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import ozcan.springframework.sfgdi.config.SfgConfiguration;
 import ozcan.springframework.sfgdi.controller.*;
 import ozcan.springframework.sfgdi.datasource.FakeDatasource;
 import ozcan.springframework.sfgdi.service.PrototypeBean;
@@ -58,10 +59,17 @@ public class SfgDiApplication {
 		PrototypeBean prototypeBean2 = context.getBean("prototypeBean", PrototypeBean.class);
 		System.out.println(prototypeBean2.getMyScope());
 
+		System.out.println("------ Fake Datasource");
 		FakeDatasource fakeDatasource = context.getBean(FakeDatasource.class);
 		System.out.println(fakeDatasource.getUserName());
 		System.out.println(fakeDatasource.getPassword());
 		System.out.println(fakeDatasource.getJdbcUrl());
+
+		System.out.println("------ Config props bean");
+		SfgConfiguration sfgConfiguration = context.getBean(SfgConfiguration.class);
+		System.out.println(sfgConfiguration.getUserName());
+		System.out.println(sfgConfiguration.getPassword());
+		System.out.println(sfgConfiguration.getJdbcUrl());
 
 	}
 
