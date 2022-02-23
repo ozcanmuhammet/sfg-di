@@ -1,6 +1,7 @@
 package ozcan.springframework.sfgdi.config;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
 import ozcan.springframework.pets.PetService;
 import ozcan.springframework.pets.PetServiceFactory;
@@ -10,11 +11,24 @@ import ozcan.springframework.sfgdi.repository.EnglishGreetingRepositoryImpl;
 import ozcan.springframework.sfgdi.service.*;
 
 //@PropertySource("classpath:datasource.properties")
+@EnableConfigurationProperties(SfgConstructorConfiguration.class)
 @ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
 
+
     @Bean
+    FakeDatasource fakeDatasource(SfgConstructorConfiguration sfgConstructorConfiguration){
+        FakeDatasource fakeDatasource = new FakeDatasource();
+        fakeDatasource.setUserName(sfgConstructorConfiguration.getUserName());
+        fakeDatasource.setPassword(sfgConstructorConfiguration.getPassword());
+        fakeDatasource.setJdbcUrl(sfgConstructorConfiguration.getJdbcUrl());
+
+        return fakeDatasource;
+    }
+
+
+/*    @Bean
     FakeDatasource fakeDatasource(@Value("${ozcan.username}") String userName,
                                   @Value("${ozcan.password}") String password,
                                   @Value("${ozcan.jdbcurl}") String jdbcUrl){
@@ -25,18 +39,8 @@ public class GreetingServiceConfig {
 
         return fakeDatasource;
     }
-
-/*
-    @Bean
-    FakeDatasource fakeDatasource(SfgConfiguration sfgConfiguration){
-        FakeDatasource fakeDatasource = new FakeDatasource();
-        fakeDatasource.setUserName(sfgConfiguration.getUserName());
-        fakeDatasource.setPassword(sfgConfiguration.getPassword());
-        fakeDatasource.setJdbcUrl(sfgConfiguration.getJdbcUrl());
-
-        return fakeDatasource;
-    }
 */
+
 
     @Bean
     PetServiceFactory petServiceFactory(){

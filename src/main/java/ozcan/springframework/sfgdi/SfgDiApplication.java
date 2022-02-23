@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import ozcan.springframework.sfgdi.config.SfgConfiguration;
+import ozcan.springframework.sfgdi.config.SfgConstructorConfiguration;
 import ozcan.springframework.sfgdi.controller.*;
 import ozcan.springframework.sfgdi.datasource.FakeDatasource;
 import ozcan.springframework.sfgdi.service.PrototypeBean;
@@ -70,6 +71,12 @@ public class SfgDiApplication {
 		System.out.println(sfgConfiguration.getUserName());
 		System.out.println(sfgConfiguration.getPassword());
 		System.out.println(sfgConfiguration.getJdbcUrl());
+
+		System.out.println("------ Constructor config binding");
+		SfgConstructorConfiguration sfgConstructorConfiguration = context.getBean(SfgConstructorConfiguration.class);
+		System.out.println(sfgConstructorConfiguration.getUserName());
+		System.out.println(sfgConstructorConfiguration.getPassword());
+		System.out.println(sfgConstructorConfiguration.getJdbcUrl());
 
 	}
 
